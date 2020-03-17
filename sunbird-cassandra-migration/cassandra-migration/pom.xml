@@ -22,10 +22,10 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-        	<groupId>org.slf4j</groupId>
-        	<artifactId>slf4j-simple</artifactId>
-        	<version>1.7.13</version>
-        	<scope>test</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.13</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
@@ -80,7 +80,7 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>18.0</version>
-           <!--  <scope>test</scope> -->
+            <!--  <scope>test</scope> -->
         </dependency>
     </dependencies>
 
@@ -132,15 +132,34 @@
                     </execution>
                 </executions>
             </plugin>
-             <!-- to run application  -->
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>1.2.1</version>
-          <configuration>
-            <mainClass>com.contrastsecurity.cassandra.migration.utils.MigrationScriptEntryPoint</mainClass>
-          </configuration>
-        </plugin>
+            <!-- to run application  -->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>exec-maven-plugin</artifactId>-->
+                <!--<version>1.2.1</version>-->
+                <!--<configuration>-->
+                    <!--<mainClass>com.contrastsecurity.cassandra.migration.utils.MigrationScriptEntryPoin</mainClass>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.contrastsecurity.cassandra.migration.utils.MigrationScriptEntryPoint</mainClass>
+                    <arguments>
+                        <argument>foo</argument>
+                        <argument>bar</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <profiles>
